@@ -1,0 +1,10 @@
+server:
+  port: 8090
+
+springdoc:
+  swagger-ui:
+    path: /kalah-game-documentation
+    tryItOutEnabled: true
+  api-docs:
+    path: /kalah-game-api-docs
+  packages-to-scan: com.bol.kalah
