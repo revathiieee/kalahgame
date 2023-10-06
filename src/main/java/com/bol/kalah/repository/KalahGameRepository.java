@@ -30,7 +30,7 @@ public class KalahGameRepository {
      */
     public KalahGame createKalahGame(Integer initialPitStoneCount){
         String id = UUID.randomUUID().toString();
-        KalahGame kalahGame = new KalahGame(initialPitStoneCount);
+        var kalahGame = new KalahGame(initialPitStoneCount);
         kalahGame.setId(id);
         gameMap.put(id, kalahGame);
         return gameMap.get(id);
@@ -42,7 +42,7 @@ public class KalahGameRepository {
      * @return KalahGame
      */
     public KalahGame findByKalahGameId(String id){
-        KalahGame kalahGame = gameMap.get(id);
+        var kalahGame = gameMap.get(id);
         if(kalahGame == null){
             throw new KalahRuntimeException("Kalah Game is not found for this id: "+id);
         }

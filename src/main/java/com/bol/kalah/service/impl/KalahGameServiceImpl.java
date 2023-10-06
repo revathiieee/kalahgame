@@ -50,8 +50,8 @@ public class KalahGameServiceImpl implements KalahGameService {
     @Override
     public KalahGame play(String gameId, Integer pitId) {
         log.debug("gameId {}, pitIndex {}",gameId, pitId);
-        KalahGame game = gameRepository.findByKalahGameId(gameId);
-        KalahGamePit pit = game.getBoard().getPitByPitIndex(pitId);
+        var game = gameRepository.findByKalahGameId(gameId);
+        var pit = game.getBoard().getPitByPitIndex(pitId);
         gameHelper.play(game, pit);
         return game;
     }
