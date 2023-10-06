@@ -54,12 +54,6 @@ public class KalahGameController {
     public ResponseEntity<KalahGame> createBoard(@RequestParam(name = "stone", defaultValue = "6", required = false) Integer numberOfStone){
         log.debug("initializing kalah game");
         return ResponseEntity.status(HttpStatus.CREATED).body(kalahGameService.createGame(numberOfStone));
-//        try {
-//
-//        } catch (KalahRuntimeException e) {
-//            log.error("A technical error occurred while create a new game: {}", e);
-//            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "A technical error has occurred when attempting to create a game"); //NOPMD
-//        }
     }
 
     /**
