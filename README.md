@@ -41,7 +41,7 @@ This is a Kalah game application implemented in Java and Springboot.The implemen
 
 After running the application and browse the swagger api url
 
-[http://localhost:8090/swagger-ui/index.html]
+http://localhost:8090/swagger-ui/index.html
 
 ### Screenshots
 
