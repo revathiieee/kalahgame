@@ -43,6 +43,13 @@ After running the application and browse the swagger api url
 
 http://localhost:8090/swagger-ui/index.html
 
+### Error Scenarios
+
+1. Invalid Game Id => Kalah Game is not found for this id
+2. If pit index is greater than 14 or less than 1 => Incorrect pit index
+3. If pit index is 7 or 14 => Home stone is not allow to distribute
+4. If the player is trying to distribute the stone from opponent pit => Incorrect pit to play the kalah game
+
 ### Screenshots
 
 ![kalah-swagger-1.png](kalah-swagger-1.png)
@@ -50,6 +57,8 @@ http://localhost:8090/swagger-ui/index.html
 ![kalah-swagger-2.png](kalah-swagger-2.png)
 
 ![kalah-swagger-3.png](kalah-swagger-3.png)
+
+Coverage Report
 
 ![jacocoreport.png](jacocoreport.png)
 
