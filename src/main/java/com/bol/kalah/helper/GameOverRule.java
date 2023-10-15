@@ -40,13 +40,10 @@ public class GameOverRule extends KalahGameRule {
      * @param game as object
      */
     private void resetBoard(KalahGame game){
-        for(Integer key: game.getBoard().getPits().keySet()){
-            if(key.equals(KalahGameBoard.PLAYER1_HOME) || key.equals(KalahGameBoard.PLAYER2_HOME)) {
-                continue;
-            }
-            KalahGamePit pit = game.getBoard().getPits().get(key);
-            pit.setStoneCount(0);
-        }
+      game.getBoard().getPits().keySet().stream()
+          .filter(key -> !key.equals(KalahGameBoard.PLAYER1_HOME) && !key.equals(KalahGameBoard.PLAYER2_HOME))
+          .map(key -> game.getBoard().getPits().get(key))
+          .forEachOrdered(pit -> pit.setStoneCount(0));
     }
 
     /**

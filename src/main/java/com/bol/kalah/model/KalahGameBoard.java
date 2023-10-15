@@ -4,6 +4,7 @@ package com.bol.kalah.model;
 import com.bol.kalah.exception.KalahRuntimeException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.IntStream;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -141,18 +142,19 @@ public class KalahGameBoard {
     private Map<Integer, KalahGamePit> initPit(Integer initialStoneOnPit, KalahGamePlayer player1, KalahGamePlayer player2){
 
         Map<Integer, KalahGamePit> pits = new ConcurrentHashMap<>();
-        for(int i= KalahGameBoard.PIT_START_INDEX; i < KalahGameBoard.PLAYER1_HOME; i++){
+      IntStream.range(KalahGameBoard.PIT_START_INDEX, KalahGameBoard.PLAYER1_HOME)
+          .forEachOrdered(i -> {
             KalahGamePit pit = new KalahGamePit(i, initialStoneOnPit, player1.getPlayerIndex());
             pits.put(i, pit);
-        }
+          });
         KalahGamePit home1 = new KalahGamePit(KalahGameBoard.PLAYER1_HOME, KalahGameBoard.INITIAL_STONE_ON_HOME, player1.getPlayerIndex());
         pits.put(KalahGameBoard.PLAYER1_HOME, home1);
 
-
-        for(int i= KalahGameBoard.PLAYER1_HOME + 1; i < KalahGameBoard.PLAYER2_HOME; i++){
+      IntStream.range(KalahGameBoard.PLAYER1_HOME + 1, KalahGameBoard.PLAYER2_HOME)
+          .forEachOrdered(i -> {
             KalahGamePit pit = new KalahGamePit(i, initialStoneOnPit, player2.getPlayerIndex());
             pits.put(i, pit);
-        }
+          });
         KalahGamePit home2 = new KalahGamePit(KalahGameBoard.PLAYER2_HOME, KalahGameBoard.INITIAL_STONE_ON_HOME, player2.getPlayerIndex());
         pits.put(KalahGameBoard.PLAYER2_HOME, home2);
 
